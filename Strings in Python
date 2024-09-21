@@ -58,3 +58,327 @@ Some other useful functions for working with strings include:
 1. **`format()`**: formats a string using placeholders (e.g., `'{} is {} years old.'.format('John', 30)`)
 2. **`printf()`**: prints formatted output to the console (e.g., `print('Hello, %s!' % 'world')`)
 3. **`ord()`** and **`chr()`**: convert characters to their ASCII code points or vice versa
+Here are the built-in string methods in Python, along with at least 10 examples for each:
+
+**1. `upper()`**: Returns a copy of the string in uppercase.
+
+Examples:
+```
+"hello".upper() -> "HELLO"
+"HELLO WORLD".upper() -> "HELLO WORLD"
+"abc123".upper() -> "ABC123"
+
+# Example with Unicode characters
+"\u00E9".upper() -> "\U00C9"
+
+# Example with non-ASCII characters
+"\u2013".upper() -> "\U0001F300"
+```
+
+**2. `lower()`**: Returns a copy of the string in lowercase.
+
+Examples:
+```
+"HELLO".lower() -> "hello"
+"WORLD".lower() -> "world"
+"ABC123".lower() -> "abc123"
+
+# Example with Unicode characters
+"\U00C9".lower() -> "\u00e9"
+
+# Example with non-ASCII characters
+"\U0001F300".lower() -> "\u2013"
+```
+
+**3. `title()`**: Returns a copy of the string with the first letter of each word capitalized.
+
+Examples:
+```
+"hello world".title() -> "Hello World"
+"abc def gh".title() -> "Abc Def Gh"
+
+# Example with Unicode characters
+"\u00E9\u2013\u2020".title() -> "\U00C9 \U2013 \U2020"
+```
+
+**4. `swapcase()`**: Returns a copy of the string with the case swapped (i.e., lowercase becomes uppercase and vice versa).
+
+Examples:
+```
+"hello".swapcase() -> "HELLO"
+"WORLD".swapcase() -> "wORLD"
+
+# Example with Unicode characters
+"\u00E9".swapcase() -> "\U00C9"
+```
+
+**5. `capitalize()`**: Returns a copy of the string with the first letter capitalized and the rest in lowercase.
+
+Examples:
+```
+"hello world".capitalize() -> "Hello world"
+"abc def gh".capitalize() -> "Abc def gh"
+
+# Example with Unicode characters
+"\u00E9\u2013\u2020".capitalize() -> "\U00C9 \U2013 \U2020"
+```
+
+**6. `casefold()`**: Returns a copy of the string in a case-insensitive form, suitable for comparing strings.
+
+Examples:
+```
+"Hello".casefold() -> "hello"
+"WORLD".casefold() -> "world"
+
+# Example with Unicode characters
+"\u00E9".casefold() -> "\u00e9"
+```
+
+**7. `encode()`**: Returns a bytes object representing the string encoded in the specified encoding.
+
+Examples:
+```
+"Hello".encode("utf-8") -> b'Hello'
+"World".encode("ascii") -> b'World'
+
+# Example with Unicode characters
+"\u00E9".encode("utf-16be") -> b'\u00e9'
+```
+
+**8. `decode()`**: Returns a string object representing the bytes object decoded in the specified encoding.
+
+Examples:
+```
+b"Hello".decode("utf-8") -> "Hello"
+b"World".decode("ascii") -> "World"
+
+# Example with Unicode characters
+b'\u00e9'.decode("utf-16be") -> "\u00E9"
+```
+
+**9. `format()`**: Returns a formatted string using the specified format string and arguments.
+
+Examples:
+```
+"{0} {1}".format("Hello", "World") -> "Hello World"
+"{0:.2f}".format(3.14159) -> "3.14"
+
+# Example with Unicode characters
+"{0:\u00E9}".format("\u00E9") -> "\u00E9\u00E9"
+```
+
+**10. `join()`**: Returns a string object containing the concatenation of all the elements in the specified iterable, separated by the
+specified separator.
+
+Examples:
+```
+["Hello", "World"].join(" ") -> "Hello World"
+[1, 2, 3].join("-") -> "1-2-3"
+
+# Example with Unicode characters
+[chr(0x00E9), chr(0x2013)].join("\u2020") -> "\u00E9\u2013\u2020"
+```
+
+**11. `ljust()`**: Returns a string object representing the original string padded to the specified width with spaces on the right.
+
+Examples:
+```
+"Hello".ljust(10) -> "Hello     "
+"WORLD".ljust(5) -> "WORLD"
+```
+
+**12. `rjust()`**: Returns a string object representing the original string padded to the specified width with spaces on the left.
+
+Examples:
+```
+"Hello".rjust(10) -> "     Hello"
+"WORLD".rjust(5) -> "WORLD "
+```
+
+**13. `center()`**: Returns a string object representing the original string centered within the specified width, using spaces as padding.
+
+Examples:
+```
+"Hello".center(10) -> "   Hello   "
+"WORLD".center(5) -> " WORLD "
+```
+
+**14. `zfill()`**: Returns a string object representing the original string padded to the specified width with zeros on the left.
+
+Examples:
+```
+"123".zfill(5) -> "00123"
+"XYZ".zfill(3) -> "XYZ" (no padding)
+```
+
+**15. `partition()`**: Returns a tuple containing the substring before the first occurrence of the separator, the separator itself, and the       
+substring after the separator.
+
+Examples:
+```
+"hello:world:abc".partition(":") -> ("hello", ":", "world:abc")
+"foo,bar,baz".partition(",") -> ("foo", ",", "bar,baz")
+```
+
+**16. `replace()`**: Returns a string object containing all occurrences of the specified substring replaced with the specified replacement.
+
+Examples:
+```
+"hello world".replace(" ", "-") -> "hello-world"
+"abc def gh".replace(" ", "") -> "abcdefgh"
+
+# Example with Unicode characters
+"\u00E9\u2013\u2020".replace("\u2020", "\n") -> "\u00E9\u2013\n"
+```
+
+**17. `rpartition()`**: Returns a tuple containing the substring before the last occurrence of the separator, the separator itself, and the       
+substring after the separator.
+
+Examples:
+```
+"hello:world:abc".rpartition(":") -> ("hello:world", ":", "abc")
+"foo,bar,baz".rpartition(",") -> ("foo,bar", ",", "baz")
+```
+
+**18. `split()`**: Returns a list of strings containing the substrings split by the specified separator.
+
+Examples:
+```
+"hello world abc".split() -> ["hello", "world", "abc"]
+"foo,bar,baz".split(",") -> ["foo", "bar", "baz"]
+
+# Example with Unicode characters
+"\u00E9\u2013\u2020".split("\u2020") -> ["\u00E9", "\u2013", ""]
+```
+
+**19. `strip()`**: Returns a string object containing all leading and trailing whitespace removed.
+
+Examples:
+```
+"   hello   ".strip() -> "hello"
+"hello world".strip() -> "hello world"
+
+# Example with Unicode characters
+"\u00E9\u2013\u2020".strip("\u2020") -> "\u00E9\u2013"
+```
+
+**20. `translate()`**: Returns a string object containing the specified translation applied to each character in the original string.
+
+Examples:
+```
+"hello world".translate({ord("o"): ord("O"), ord("w"): ord("W")}) -> "HeLlO WoRlD"
+
+# Example with Unicode characters
+"\u00E9\u2013\u2020".translate({ord("\u2020"): ord("\n")}) -> "\u00E9\u2013\n"
+```
+
+**21. `endswith()`**: Returns a boolean indicating whether the string ends with the specified suffix.
+
+Examples:
+```
+"hello world".endswith(" world") -> True
+"abc def gh".endswith("gh") -> True
+
+# Example with Unicode characters
+"\u00E9\u2013\u2020".endswith("\u2020") -> True
+```
+
+**22. `startswith()`**: Returns a boolean indicating whether the string starts with the specified prefix.
+
+Examples:
+```
+"hello world".startswith("hello") -> True
+"abc def gh".startswith("abc") -> True
+
+# Example with Unicode characters
+"\u00E9\u2013\u2020".startswith("\u00E9") -> True
+```
+
+**23. `find()`**: Returns the index of the first occurrence of the specified substring, or -1 if not found.
+
+Examples:
+```
+"hello world".find("world") -> 6
+"abc def gh".find("def") -> 3
+
+# Example with Unicode characters
+"\u00E9\u2013\u2020".find("\u2020") -> 8
+```
+
+**24. `index()`**: Returns the index of the first occurrence of the specified substring, or raises a ValueError if not found.
+
+Examples:
+```
+"hello world".index("world") -> 6
+"abc def gh".index("def") -> 3
+
+# Example with Unicode characters
+"\u00E9\u2013\u2020".index("\u2020") -> 8
+```
+
+**25. `join()`**: Returns a string object containing the elements of the iterable joined by the specified separator.
+
+Examples:
+```
+["hello", "world", "abc"].join(" ") -> "hello world abc"
+["foo", "bar", "baz"].join(",") -> "foo,bar,baz"
+
+# Example with Unicode characters
+[("\u00E9", "\u2013", "\u2020")].join("") -> "\u00E9\u2013\u2020"
+```
+
+**26. `count()`**: Returns the number of occurrences of the specified substring in the string.
+
+Examples:
+```
+"hello world".count("o") -> 2
+"abc def gh".count("d") -> 1
+
+# Example with Unicode characters
+"\u00E9\u2013\u2020".count("\u2020") -> 1
+```
+
+**27. `upper()`**: Returns a string object containing all characters in the original string converted to uppercase.
+
+Examples:
+```
+"hello world".upper() -> "HELLO WORLD"
+"abc def gh".upper() -> "ABC DEF GH"
+
+# Example with Unicode characters
+"\u00E9\u2013\u2020".upper() -> "\u00C9\u2013\u2020"
+```
+
+**28. `lower()`**: Returns a string object containing all characters in the original string converted to lowercase.
+
+Examples:
+```
+"hello world".lower() -> "hello world"
+"abc def gh".lower() -> "abc def gh"
+
+# Example with Unicode characters
+"\u00E9\u2013\u2020".lower() -> "\u00e9\u2013\u2020"
+```
+
+**29. `swapcase()`**: Returns a string object containing all characters in the original string converted to uppercase, then swapped (i.e.,        
+lowercase becomes uppercase and vice versa).
+
+Examples:
+```
+"hello world".swapcase() -> "HELLO WORLD"
+"abc def gh".swapcase() -> "ABC DEF GH"
+
+# Example with Unicode characters
+"\u00E9\u2013\u2020".swapcase() -> "\u00C9\u2013\u2020"
+```
+
+**30. `title()`**: Returns a string object containing the original string with the first character of each word capitalized, and the rest in      
+lowercase.
+
+Examples:
+```
+"hello world".title() -> "Hello World"
+"abc def gh".title() -> "Abc Def Gh"
+
+# Example with Unicode characters
+"\u00E9\u2013\u2020".title() -> "\u00C9 \u2013 \u2020"
